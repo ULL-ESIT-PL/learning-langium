@@ -1,5 +1,5 @@
 import type { ValidationAcceptor, ValidationChecks } from 'langium';
-import type { HelloWorldAstType, Person, Cadena } from './generated/ast.js';
+import type { HelloWorldAstType, Person, Cadena } from './generated/ast.js'; // Import the Cadena type from the generated AST
 import type { HelloWorldServices } from './hello-world-module.js';
 
 /**
@@ -10,7 +10,7 @@ export function registerValidationChecks(services: HelloWorldServices) {
     const validator = services.validation.HelloWorldValidator;
     const checks: ValidationChecks<HelloWorldAstType> = {
         Person: validator.checkPersonStartsWithCapital,
-        Cadena: validator.checkCadenaHasO
+        Cadena: validator.checkCadenaHasO               // You have to register the check for the Cadena type here
     };
     registry.register(checks, validator);
 }
@@ -35,9 +35,9 @@ export class HelloWorldValidator {
     }
 
     checkCadenaHasO(cad: Cadena, accept: ValidationAcceptor): void {
-        if (cad?.str?.includes("o"))
+        if (cad?.str?.includes("o")) // A Cadena has a property 'str' that is a string
           accept(
-            'warning', 'string with an "o".', 
+            'warning', 'strings with letter "o" are not allowed!.', 
             { node: cad, property: 'str' });
     }
 
