@@ -1,18 +1,9 @@
-grammar HelloWorld
+grammar MiniLogo
 
-entry Model:
-    (persons+=Person | greetings+=Greeting)*;
+entry Model:  (stmts+=Stmt | defs+=Def)*;
 
-Person:
-    'person' name=ID;
+Stmt: Cmd | Macro;
+Cmd: Pen | Move | Color | For;
+Macro: def=[Def:ID] '(' (args+=Expr (',' args+=Expr)*)? ')'; // Macro call
 
-Greeting:
-    'Hello' person=[Person:ID] '!';
-
-hidden terminal WS: /\s+/;
-terminal ID: /[_a-zA-Z][\w_]*/;
-terminal INT returns number: /[0-9]+/;
-terminal STRING: /"(\\.|[^"\\])*"|'(\\.|[^'\\])*'/;
-
-hidden terminal ML_COMMENT: /\/\*[\s\S]*?\*\//;
-hidden terminal SL_COMMENT: /\/\/[^\n\r]*/;
+Def: 'def' name=ID '(' (params+=Param (',' params+=Param)*)? ')' Block;
