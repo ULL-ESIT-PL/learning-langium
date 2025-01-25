@@ -33,5 +33,5 @@ terminal ID returns string: /[_a-zA-Z]\w*/;
 terminal INT returns number: /\d+/;
 
 hidden terminal WS: /\s+/;
-hidden terminal COMMENT: /\/\/.*$/;
+hidden terminal SL_COMMENT: /\/\/.*[\n\r]/;
 hidden terminal ML_COMMENT: /[/][*][\S\s]*?[*][/]/;
