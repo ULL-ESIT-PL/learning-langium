@@ -31,3 +31,7 @@ NegExpr: '-' ne=PrimExpr;
 terminal HEX returns string: /#(\d|[a-fA-F]){3,6}/;
 terminal ID returns string: /[_a-zA-Z]\w*/;
 terminal INT returns number: /\d+/;
+
+hidden terminal WS: /\s+/;
+hidden terminal COMMENT: /\/\/.*$/;
+hidden terminal ML_COMMENT: /[/][*][\S\s]*?[*][/]/;
