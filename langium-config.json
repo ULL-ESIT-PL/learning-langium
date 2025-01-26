@@ -1,14 +1,14 @@
 {
-    "projectName": "HelloWorld",
+    "projectName": "MiniLogo",
     "languages": [{
-        "id": "hello-world",
-        "grammar": "src/language/hello-world.langium",
-        "fileExtensions": [".hello"],
+        "id": "minilogo",
+        "grammar": "src/language/minilogo.langium",
+        "fileExtensions": [".logo"],
         "textMate": {
-            "out": "syntaxes/hello-world.tmLanguage.json"
+            "out": "syntaxes/minilogo.tmLanguage.json"
         },
         "monarch": {
-            "out": "src/syntaxes/hello-world.monarch.ts"
+            "out": "src/syntaxes/minilogo.monarch.ts"
         }
     }],
     "out": "src/language/generated"
