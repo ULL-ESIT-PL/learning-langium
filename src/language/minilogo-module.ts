@@ -1,7 +1,7 @@
 import { type Module, inject } from 'langium';
 import { createDefaultModule, createDefaultSharedModule, type DefaultSharedModuleContext, type LangiumServices, type LangiumSharedServices, type PartialLangiumServices } from 'langium/lsp';
 import { MiniLogoGeneratedModule, MiniLogoGeneratedSharedModule } from './generated/module.js';
-import { MiniLogoValidator as MiniLogoValidator, registerValidationChecks } from './minilogo-validator.js';
+import { MiniLogoValidator as MiniLogoValidator, MiniLogoValidationRegistry } from './minilogo-validator.js';
 
 /**
  * Declaration of custom services - add your own service classes here.
