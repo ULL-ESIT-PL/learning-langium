@@ -35,18 +35,14 @@ describe('Validating', () => {
         ).toHaveLength(0);
     });
 
-    test('check capital letter validation', async () => {
-        document = await parse(`
-            person langium
-        `);
+    test('check duplicated parameter validation', async () => {
+        document = await parse(`def square(a,b,a) {}`);
 
         expect(
             checkDocumentValid(document) || document?.diagnostics?.map(diagnosticToString)?.join('\n')
         ).toEqual(
             // 'expect.stringContaining()' makes our test robust against future additions of further validation rules
-            expect.stringContaining(s`
-                [1:19..1:26]: Person name should start with a capital.
-            `)
+            expect.stringContaining(s`Duplicate parameter name`)
         );
     });
 });
