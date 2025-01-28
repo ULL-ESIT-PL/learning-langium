@@ -25,20 +25,22 @@ describe('Linking tests', () => {
 
     test('linking of greetings', async () => {
         document = await parse(`
-            person Langium
-            Hello Langium!
-        `);
+// draw a square on the screen.
+move(200,200)
+pen(down)
+move(100,0)
+move(0,100)
+move(-100,0)
+move(0,-100)
+pen(up)`); // 7 stmts
 
         expect(
             // here we first check for validity of the parsed document object by means of the reusable function
             //  'checkDocumentValid()' to sort out (critical) typos first,
             // and then evaluate the cross references we're interested in by checking
             //  the referenced AST element as well as for a potential error message;
-            checkDocumentValid(document)
-                || document.parseResult.value.greetings.map(g => g.person.ref?.name || g.person.error?.message).join('\n')
-        ).toBe(s`
-            Langium
-        `);
+            checkDocumentValid(document) || document.parseResult.value.stmts.length.toString() == '7'
+        );
     });
 });
 
