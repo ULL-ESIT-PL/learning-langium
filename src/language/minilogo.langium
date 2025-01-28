@@ -11,10 +11,10 @@ Param: name=ID;
 
 fragment Block: '{' body+=Stmt* '}';
 
-Pen: 'pen' '(' mode=('up' | 'down') ')';
-Move: 'move' '(' ex=Expr ',' ey=Expr ')';
-Color: 'color' '(' (r=Expr ',' g=Expr ',' b=Expr) | color=ID | color=HEX ')';
-For: 'for' '(' var=Param ',' e1=Expr ',' e2=Expr ')' Block;
+Pen:   'pen' '(' mode=('up' | 'down') ')';
+Move:  'move' '(' ex=Expr ',' ey=Expr ')';
+Color: 'color' '(' ((r=Expr ',' g=Expr ',' b=Expr) | color=ID | color=HEX) ')';
+For:   'for' var=Param '=' e1=Expr 'to' e2=Expr Block;
 
 Expr: Add;
 Add infers Expr:
@@ -23,14 +23,14 @@ Mult infers Expr:
     PrimExpr ({infer BinExpr.e1=current} op=('*'|'/') e2=PrimExpr)*;
 PrimExpr: Lit | Ref | Group | NegExpr;
 
-Lit: val=INT;
+Lit: val=NUMBER;
 Ref: var=[Param:ID];
 Group: '(' ge=Expr ')';
 NegExpr: '-' ne=PrimExpr;
 
 terminal HEX returns string: /#(\d|[a-fA-F]){3,6}/;
 terminal ID returns string: /[_a-zA-Z]\w*/;
-terminal INT returns number: /\d+/;
+terminal NUMBER returns number: /\d+([.]\d+)?/;
 
 hidden terminal WS: /\s+/;
 hidden terminal SL_COMMENT: /\/\/.*[\n\r]/;
