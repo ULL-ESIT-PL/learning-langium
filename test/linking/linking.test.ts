@@ -2,15 +2,15 @@ import { afterEach, beforeAll, describe, expect, test } from "vitest";
 import { EmptyFileSystem, type LangiumDocument } from "langium";
 import { expandToString as s } from "langium/generate";
 import { clearDocuments, parseHelper } from "langium/test";
-import { createHelloWorldServices } from "../../src/language/minilogo-module.js";
+import { createMiniLogoServices } from "../../src/language/minilogo-module.js";
 import { Model, isModel } from "../../src/language/generated/ast.js";
 
-let services: ReturnType<typeof createHelloWorldServices>;
+let services: ReturnType<typeof createMiniLogoServices>;
 let parse:    ReturnType<typeof parseHelper<Model>>;
 let document: LangiumDocument<Model> | undefined;
 
 beforeAll(async () => {
-    services = createHelloWorldServices(EmptyFileSystem);
+    services = createMiniLogoServices(EmptyFileSystem);
     parse = parseHelper<Model>(services.miniLogoServices);
 
     // activate the following if your linking test requires elements from a built-in library, for example

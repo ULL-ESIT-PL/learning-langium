@@ -3,7 +3,7 @@
     "languages": [{
         "id": "minilogo",
         "grammar": "src/language/minilogo.langium",
-        "fileExtensions": [".logo"],
+        "fileExtensions": [".logo", "mlogo", "minilogo"],
         "textMate": {
             "out": "syntaxes/minilogo.tmLanguage.json"
         },
