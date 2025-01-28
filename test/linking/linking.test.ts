@@ -32,7 +32,7 @@ move(100,0)
 move(0,100)
 move(-100,0)
 move(0,-100)   // 6
-pen(up)  // 7
+pen(up)        // 7
 `); // 7 stmts
 
         expect(
