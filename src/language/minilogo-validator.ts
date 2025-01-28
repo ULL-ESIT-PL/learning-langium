@@ -1,14 +1,14 @@
 import type { ValidationAcceptor, ValidationChecks } from 'langium';
-import type { HelloWorldAstType, Model, Def } from './generated/ast.js';
-import type { HelloWorldServices } from './hello-world-module.js';
+import type { MiniLogoAstType, Model, Def } from './generated/ast.js';
+import type { MiniLogoWorldServices } from './minilogo-module.js';
 
 /**
  * Register custom validation checks.
  */
-export function registerValidationChecks(services: HelloWorldServices) {
+export function registerValidationChecks(services: MiniLogoWorldServices) {
     const registry = services.validation.ValidationRegistry;
-    const validator = services.validation.HelloWorldValidator;
-    const checks: ValidationChecks<HelloWorldAstType> = {
+    const validator = services.validation.MiniLogoValidator;
+    const checks: ValidationChecks<MiniLogoAstType> = {
         Model: validator.checkModel,
         Def: validator.checkDef,
     };
@@ -18,7 +18,7 @@ export function registerValidationChecks(services: HelloWorldServices) {
 /**
  * Implementation of custom validations.
  */
-export class HelloWorldValidator {
+export class MiniLogoValidator {
 
     /**
      * Check model for duplicated def names

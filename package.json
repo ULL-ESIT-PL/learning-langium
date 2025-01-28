@@ -85,7 +85,7 @@
         ]
     },
     "activationEvents": [
-        "onLanguage:hello-world"
+        "onLanguage:minilogo"
     ],
     "main": "./out/extension/main.cjs",
     "bin": {

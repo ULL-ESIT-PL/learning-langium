@@ -2,7 +2,7 @@ import type { Model } from '../language/generated/ast.js';
 import chalk from 'chalk';
 import { Command } from 'commander';
 import { HelloWorldLanguageMetaData } from '../language/generated/module.js';
-import { createHelloWorldServices } from '../language/hello-world-module.js';
+import { createHelloWorldServices } from '../language/minilogo-module.js';
 import { extractAstNode } from './cli-util.js';
 import { generateJavaScript } from './generator.js';
 import { NodeFileSystem } from 'langium/node';
@@ -15,7 +15,7 @@ const packagePath = path.resolve(__dirname, '..', '..', 'package.json');
 const packageContent = await fs.readFile(packagePath, 'utf-8');
 
 export const generateAction = async (fileName: string, opts: GenerateOptions): Promise<void> => {
-    const services = createHelloWorldServices(NodeFileSystem).HelloWorld;
+    const services = createHelloWorldServices(NodeFileSystem).miniLogoServices;
     const model = await extractAstNode<Model>(fileName, services);
     const generatedFilePath = generateJavaScript(model, fileName, opts.destination);
     console.log(chalk.green(`JavaScript code generated successfully: ${generatedFilePath}`));

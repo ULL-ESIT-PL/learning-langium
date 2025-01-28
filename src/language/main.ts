@@ -1,7 +1,7 @@
 import { startLanguageServer } from 'langium/lsp';
 import { NodeFileSystem } from 'langium/node';
 import { createConnection, ProposedFeatures } from 'vscode-languageserver/node.js';
-import { createHelloWorldServices } from './hello-world-module.js';
+import { createHelloWorldServices } from './minilogo-module.js';
 
 // Create a connection to the client
 const connection = createConnection(ProposedFeatures.all);

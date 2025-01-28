@@ -3,7 +3,7 @@ import { EmptyFileSystem, type LangiumDocument } from "langium";
 import { expandToString as s } from "langium/generate";
 import { parseHelper } from "langium/test";
 import type { Diagnostic } from "vscode-languageserver-types";
-import { createHelloWorldServices } from "../../src/language/hello-world-module.js";
+import { createHelloWorldServices } from "../../src/language/minilogo-module.js";
 import { Model, isModel } from "../../src/language/generated/ast.js";
 
 let services: ReturnType<typeof createHelloWorldServices>;
@@ -12,7 +12,7 @@ let document: LangiumDocument<Model> | undefined;
 
 beforeAll(async () => {
     services = createHelloWorldServices(EmptyFileSystem);
-    const doParse = parseHelper<Model>(services.HelloWorld);
+    const doParse = parseHelper<Model>(services.miniLogoServices);
     parse = (input: string) => doParse(input, { validation: true });
 
     // activate the following if your linking test requires elements from a built-in library, for example
