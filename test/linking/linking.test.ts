@@ -26,13 +26,14 @@ describe('Linking tests', () => {
     test('linking of greetings', async () => {
         document = await parse(`
 // draw a square on the screen.
-move(200,200)
+move(200,200)  // 1
 pen(down)
 move(100,0)
 move(0,100)
 move(-100,0)
-move(0,-100)
-pen(up)`); // 7 stmts
+move(0,-100)   // 6
+pen(up)  // 7
+`); // 7 stmts
 
         expect(
             // here we first check for validity of the parsed document object by means of the reusable function
