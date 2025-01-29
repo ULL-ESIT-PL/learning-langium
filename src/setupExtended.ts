@@ -4,19 +4,19 @@ import { configureWorker, defineUserServices } from './setupCommon.js';
 export const setupConfigExtended = (): UserConfig => {
     const extensionFilesOrContents = new Map();
     extensionFilesOrContents.set('/language-configuration.json', new URL('../language-configuration.json', import.meta.url));
-    extensionFilesOrContents.set('/hello-world-grammar.json', new URL('../syntaxes/hello-world.tmLanguage.json', import.meta.url));
+    extensionFilesOrContents.set('/minilogo-grammar.json', new URL('../syntaxes/minilogo.tmLanguage.json', import.meta.url));
 
     return {
         wrapperConfig: {
             serviceConfig: defineUserServices(),
             editorAppConfig: {
                 $type: 'extended',
-                languageId: 'hello-world',
-                code: `// Hello World is running in the web!`,
+                languageId: 'minilogo',
+                code: `// MiniLogo is running in the web!`,
                 useDiffEditor: false,
                 extensions: [{
                     config: {
-                        name: 'hello-world-web',
+                        name: 'minilogo-web',
                         publisher: 'generator-langium',
                         version: '1.0.0',
                         engines: {
@@ -24,16 +24,16 @@ export const setupConfigExtended = (): UserConfig => {
                         },
                         contributes: {
                             languages: [{
-                                id: 'hello-world',
+                                id: 'minilogo',
                                 extensions: [
-                                    '.hello-world'
+                                    '.minilogo'
                                 ],
                                 configuration: './language-configuration.json'
                             }],
                             grammars: [{
-                                language: 'hello-world',
-                                scopeName: 'source.hello-world',
-                                path: './hello-world-grammar.json'
+                                language: 'minilogo',
+                                scopeName: 'source.minilogo',
+                                path: './minilogo-grammar.json'
                             }]
                         }
                     },

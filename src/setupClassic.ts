@@ -1,6 +1,6 @@
 import { MonacoEditorLanguageClientWrapper, UserConfig } from 'monaco-editor-wrapper';
 import { configureWorker, defineUserServices } from './setupCommon.js';
-import monarchSyntax from "./syntaxes/hello-world.monarch.js";
+import monarchSyntax from "./syntaxes/minilogo.monarch.js";
 
 export const setupConfigClassic = (): UserConfig => {
     return {
@@ -8,8 +8,8 @@ export const setupConfigClassic = (): UserConfig => {
             serviceConfig: defineUserServices(),
             editorAppConfig: {
                 $type: 'classic',
-                languageId: 'hello-world',
-                code: `// Hello World is running in the web!`,
+                languageId: 'minilogo',
+                code: `// MiniLogo is running in the web!`,
                 useDiffEditor: false,
                 languageExtensionConfig: { id: 'langium' },
                 languageDef: monarchSyntax,
