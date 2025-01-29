@@ -1,0 +1,10 @@
+{
+  "$type": "Model",
+  "stmts": [
+    {
+      "$type": "Color",
+      "color": "white"
+    }
+  ],
+  "defs": []
+}

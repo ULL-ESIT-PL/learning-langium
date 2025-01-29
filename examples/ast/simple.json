@@ -1,0 +1,75 @@
+{
+  "$type": "Model",
+  "stmts": [
+    {
+      "$type": "Move",
+      "ex": {
+        "$type": "Lit",
+        "val": 200
+      },
+      "ey": {
+        "$type": "Lit",
+        "val": 200
+      }
+    },
+    {
+      "$type": "Pen",
+      "mode": "down"
+    },
+    {
+      "$type": "Move",
+      "ex": {
+        "$type": "Lit",
+        "val": 100
+      },
+      "ey": {
+        "$type": "Lit",
+        "val": 0
+      }
+    },
+    {
+      "$type": "Move",
+      "ex": {
+        "$type": "Lit",
+        "val": 0
+      },
+      "ey": {
+        "$type": "Lit",
+        "val": 100
+      }
+    },
+    {
+      "$type": "Move",
+      "ex": {
+        "$type": "NegExpr",
+        "ne": {
+          "$type": "Lit",
+          "val": 100
+        }
+      },
+      "ey": {
+        "$type": "Lit",
+        "val": 0
+      }
+    },
+    {
+      "$type": "Move",
+      "ex": {
+        "$type": "Lit",
+        "val": 0
+      },
+      "ey": {
+        "$type": "NegExpr",
+        "ne": {
+          "$type": "Lit",
+          "val": 100
+        }
+      }
+    },
+    {
+      "$type": "Pen",
+      "mode": "up"
+    }
+  ],
+  "defs": []
+}

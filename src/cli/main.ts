@@ -19,6 +19,10 @@ export const generateAction = async (fileName: string, opts: GenerateOptions): P
     const model = await extractAstNode<Model>(fileName, services);
     const generated = generate(model);
     console.log(chalk.green(`Generated successfully: ${generated}`));
+    const destination = opts.destination || '.';
+    const destinationPath = path.resolve(destination, path.basename(fileName, path.extname(fileName)) + '.json');
+    await fs.writeFile(destinationPath, generated); 
+    console.log(chalk.green(`Generated file: ${destinationPath}`));
 };
 
 export type GenerateOptions = {
