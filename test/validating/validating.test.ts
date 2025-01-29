@@ -23,7 +23,7 @@ describe('Validating', () => {
   
     test('check no errors', async () => {
         document = await parse(`
-            person Langium
+            color(0,0,0)
         `);
 
         expect(
