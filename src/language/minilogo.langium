@@ -24,7 +24,7 @@ Mult infers Expr:
 PrimExpr: Lit | Ref | Group | NegExpr;
 
 Lit: val=NUMBER;
-Ref: var=[Param:ID];
+Ref: val=[Param:ID];
 Group: '(' ge=Expr ')';
 NegExpr: '-' ne=PrimExpr;
 
