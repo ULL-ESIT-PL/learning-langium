@@ -5,7 +5,7 @@ import { Model } from '../language/generated/ast.js';
 import { createMiniLogoServices } from '../language/minilogo-module.js';
 import { NodeFileSystem } from 'langium/node';
 
-export function generate (model: Model): string {
+export function generateJSON (model: Model): string {
 
     const services = createMiniLogoServices(NodeFileSystem).miniLogoServices;
 
