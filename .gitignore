@@ -6,3 +6,4 @@ node_modules/
 out/
 src/language/generated/
 syntaxes/
+hello-world-0.0.1.vsix
