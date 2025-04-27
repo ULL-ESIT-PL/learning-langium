@@ -17,6 +17,7 @@
         "langium:watch": "langium generate --watch",
         "vscode:prepublish": "npm run build && npm run lint",
         "esbuild-base": "esbuild ./src/extension/main.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",
+        "build:vscode:extension": "vsce package",
         "build:web": "npm run build",
         "bundle": "vite build",
         "bundle:serve": "http-server ./dist --port 5175",
